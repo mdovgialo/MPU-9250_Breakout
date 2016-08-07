@@ -5,21 +5,19 @@ https://github.com/YuriMat/MagMaster
 
 Use mpu9250_calibrationmagmaster.ino firmware for that.
 
-You will get calibration matrix and bias vector, use them to edit
-
-mpu9250_tracking.ino
-mpu9250_magmaster_test.ino firmwares.
-
 *VERY IMPORTANT!* Magmaster shows you how to rotate your mpu9250 for calibration, but most boards print only accelerometer axis.
 The magnetometer axis are aligned other way (accX = magY, accY = magX, accZ= -magZ) and magmaster requires magnetometer axis to be aligned according to magmaster help pictures.
 
 (good picture for reference http://www.lucidarme.me/wp-content/uploads/2015/01/AxisOrientation.png )
 
-When you are done with magmaster it will print calibration matrix and bias vector, which you have to privide for tracking.
+When you are done with magmaster it will print calibration matrix and bias vector, which you have to provide for tracking.
 
-You have to edit this function, the values of calibration_matrix and bias:
+You have to edit this function, the values of calibration_matrix and bias in files mpu9250_tracking.ino
+mpu9250_magmaster_test.ino:
+
 
 ~~~~
+
 void transformation(float uncalibrated_values[3])    
 {
   //calibration_matrix[3][3] is the transformation matrix
